@@ -1,0 +1,35 @@
+# Smithery.ai configuration
+startCommand:
+  type: stdio
+  configSchema:
+    # JSON Schema defining the configuration options for the MCP.
+    type: object
+    properties:
+      dateFormat:
+        type: string
+        description: "人类可读时间格式，使用moment.js格式化字符串"
+        default: "YYYY年MM月DD日 HH:mm:ss"
+      language:
+        type: string
+        description: "日期显示语言"
+        enum: ["zh-cn", "en"]
+        default: "zh-cn"
+    additionalProperties: false
+  commandFunction: |
+    (config) => {
+      const env = {};
+      
+      if (config.dateFormat) {
+        env.DATE_FORMAT = config.dateFormat;
+      }
+      
+      if (config.language) {
+        env.LANGUAGE = config.language;
+      }
+      
+      return {
+        "command": "node",
+        "args": ["mcp_server.js"],
+        "env": env
+      };
+    }
