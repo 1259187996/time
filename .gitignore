@@ -1,0 +1,57 @@
+# 依赖目录
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+.pnpm-debug.log
+
+# 环境配置
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# 日志
+logs
+*.log
+
+# 运行时数据
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# 目录
+.npm
+.pnp
+.pnp.js
+
+# 可选的 npm 缓存目录
+.npm
+
+# 可选的 eslint 缓存
+.eslintcache
+
+# 输出目录
+dist/
+build/
+out/
+
+# 覆盖率目录
+.nyc_output
+coverage
+
+# IDE 和编辑器
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# 调试文件
+.node_repl_history
+.history/
+
+# 本地配置文件
+config.local.js
