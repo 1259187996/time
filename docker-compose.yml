@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  time-server:
+    build: .
+    container_name: mcp-time-server
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3000/time/unix"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 5s
+    volumes:
+      - ./logs:/app/logs
